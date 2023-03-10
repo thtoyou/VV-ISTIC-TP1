@@ -22,6 +22,27 @@ A posteriori, s’il s’agit d’une erreur dans l’expression d’une conditi
 # 2.
 On the appache commons-collections, PMD reported an issue about a method having 2 return statements. (search method) I would consider it a false positive since the method is relatevely simple (12 lines of code) and having a return inside the while loop increases the performance since it will stop the calculation whitout computing the whole loop. It also reported a "System.out.println()" that shoulc be replaced by a logger. I would consider this a true positive since System.out.println() is not compatible with every architecture depending on the user's program
 # 3.
+- L’expérience qui a était faite c’est le test de disponibilité d’un système, c’est à dire on voit l’impact
+  des pannes de certains services sur la disponibilité de notre système.
+  Dans ce cas, Netflix essaye de voir, si on fait échouer certain services, est ce que l’utilisateur peut toujours trouver le contenu, et aussi regarder.
+
+- Pour faire ces expériences, il faut préciser :
+ -les hypothèses
+ -Les variables indépendentes
+ -Les variables dépendentes
+ -Le context
+
+- NetFlix dans ces expérience elle vérifie l'évolution de la variable :
+  SPS ( START PER SECOND ), par rapport au streams lancer par seconde
+
+Il ont eu des fluctuations de la valuer de cette variable tout dépend de la période de la journée
+
+- Plusieurs autres entreprises font ce genre d'expérience comme :
+  Amazon, Google , Microsoft et Facebook
+
+- On peut dire que Google par exemple, peut vérifier la variable : RPS ( reaserch per second )
+  pour qu’il puisse savoir si l’utilisateur peut faire ces recherches et il obtient les résultats souhaités
+
 # 4.
 # 5.
 
